@@ -36,6 +36,10 @@ jobs:
         cabal v2-update
         cabal v2-build --only-dependencies --enable-tests --enable-benchmarks all
     - name: Build
-      run: cabal build --enable-tests --enable-benchmarks all
+      run: |
+        set -x
+        cabal v2-build --enable-tests --enable-benchmarks all
     - name: Run tests
-      run: cabal test all
+      run: |
+        set -x
+        cabal v2-test all
