@@ -14,10 +14,10 @@ jobs:
     strategy:
       matrix:
         include:
-          - ghc-version: 8.10.3
-            cabal-version: 3.2
-          - ghc-version: 8.8.4
-            cabal-version: 3.0
+          - ghc-version: '8.10.3'
+            cabal-version: '3.2'
+          - ghc-version: '8.8.4'
+            cabal-version: '3.0'
 
 
     steps:
