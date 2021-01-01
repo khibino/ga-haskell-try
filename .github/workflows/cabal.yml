@@ -1,4 +1,4 @@
-name: Haskell Cabal
+name: Haskell with cabal-install
 
 on:
   push:
