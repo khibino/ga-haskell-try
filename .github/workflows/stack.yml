@@ -30,7 +30,7 @@ jobs:
     - name: Install dependencies
       run: |
         set -ex
-        stack --no-terminal --install-ghc $ARGS test all --bench --only-dependencies
+        stack --no-terminal --install-ghc $ARGS test --bench --only-dependencies
         set +ex
       env:
         ARGS: --resolver ${{ matrix.resolver }}
@@ -38,7 +38,7 @@ jobs:
     - name: Build
       run: |
         set -ex
-        stack --no-terminal $ARGS test all --bench --no-run-benchmarks --haddock --no-haddock-deps
+        stack --no-terminal $ARGS test --bench --no-run-benchmarks --haddock --no-haddock-deps
         set +ex
       env:
         ARGS: --resolver ${{ matrix.resolver }}
