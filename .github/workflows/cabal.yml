@@ -20,6 +20,8 @@ jobs:
             cabal-install: '2.4.0.0'
           - ghc: '8.4.4'
             cabal-install: '2.2.0.0'
+          - ghc: '8.2.2'
+            cabal-install: '2.0.0.1'
 
 
     steps:
