@@ -1,0 +1,52 @@
+name: Haskell with stack
+
+on:
+  push:
+  # schedule:
+  # - cron: "0 0 * * 1"
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        #os: [ubuntu-latest, macOS-latest]
+        os: [ubuntu-latest]
+        resolver: ['lts-13', 'lts-12']
+
+        exclude:
+        - os: macOS-latest
+          plan:
+            build: cabal
+
+    runs-on: ${{ matrix.os }}
+    steps:
+    - name: Install OS Packages
+      uses: mstksg/get-package@v1
+      with:
+        apt-get: ${{ matrix.apt-get }}
+        brew: ${{ matrix.brew }}
+    - uses: actions/checkout@v1
+
+    - name: Setup stack
+      uses: mstksg/setup-stack@v1
+
+    - name: Install dependencies
+      run: |
+        set -ex
+        stack --no-terminal --install-ghc $ARGS test --bench --only-dependencies
+        set +ex
+      env:
+        ARGS: --resolver ${{ matrix.resolver }}
+
+    - name: Build
+      run: |
+        set -ex
+        stack --no-terminal $ARGS test --bench --no-run-benchmarks --haddock --no-haddock-deps
+        set +ex
+      env:
+        ARGS: --resolver ${{ matrix.resolver }}
+
+### Local Variables: ***
+### mode:yaml ***
+### indent-tabs-mode: nil ***
+### End: ***
