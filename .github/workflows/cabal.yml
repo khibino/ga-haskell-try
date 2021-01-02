@@ -42,16 +42,16 @@ jobs:
 
     - name: Install dependencies
       run: |
-        set -x
+        set -ex
         cabal new-update
         cabal new-build --only-dependencies --enable-tests --enable-benchmarks all
     - name: Build
       run: |
-        set -x
+        set -ex
         cabal new-build --enable-tests --enable-benchmarks all
     - name: Run tests
       run: |
-        set -x
+        set -ex
         cabal new-test all
 
 ### Local Variables: ***
