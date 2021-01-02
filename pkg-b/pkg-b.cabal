@@ -1,7 +1,7 @@
 name:                pkg-b
 version:             0.1.0.0
-synopsis:            Test package B for travis CI
-description:         This is the test package B for travis CI
+synopsis:            Test package B for Github Actions
+description:         This is the test package B for Github Actions
 license:             BSD3
 license-file:        LICENSE
 author:              Kei Hibino
@@ -43,8 +43,4 @@ library
 
 source-repository head
   type:       git
-  location:   https://github.com/khibino/travis-ci-haskell
-
-source-repository head
-  type:       mercurial
-  location:   https://bitbucket.org/khibino/travis-ci-haskell
+  location:   https://github.com/khibino/ga-haskell-try
