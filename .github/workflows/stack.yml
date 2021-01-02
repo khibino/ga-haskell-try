@@ -13,11 +13,6 @@ jobs:
         os: [ubuntu-latest]
         resolver: ['lts-13', 'lts-12']
 
-        exclude:
-        - os: macOS-latest
-          plan:
-            build: cabal
-
     runs-on: ${{ matrix.os }}
     steps:
     - name: Install OS Packages
