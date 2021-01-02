@@ -1,3 +1,5 @@
+resolver: lts-13.30
+
 packages:
 - pkg-a/
 - pkg-b/
